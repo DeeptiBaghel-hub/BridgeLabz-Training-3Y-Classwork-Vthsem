@@ -1,0 +1,560 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f8f6ff;
+    color: #222;
+}/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   BODY
+======================================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f5ff;
+    color: #222;
+}
+
+
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar {
+    width: 100%;
+    height: 110px;
+
+    background: #fff;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 28px;
+
+    gap: 20px;
+
+    border-top: 4px solid #222;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.logo {
+    width: 150px;
+
+    text-align: center;
+
+    flex-shrink: 0;
+}
+
+.logo-text {
+    font-size: 40px;
+    font-weight: 900;
+
+    letter-spacing: -4px;
+
+    color: #111820;
+}
+
+.logo span {
+    display: block;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.divider {
+    width: 1px;
+    height: 45px;
+
+    background: #ddd;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   LOCATION
+======================================== */
+
+.location {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 240px;
+}
+
+.location-icon {
+    font-size: 38px;
+
+    color: #6844e8;
+}
+
+.location h3 {
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.location p {
+    margin-top: 4px;
+
+    font-size: 16px;
+
+    color: #444;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 36px;
+
+    flex: 1;
+}
+
+.nav-links a {
+    text-decoration: none;
+
+    color: #555;
+
+    font-size: 19px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    padding: 15px 0;
+}
+
+
+/* Active navigation */
+
+.nav-links .active {
+    background: #eee8ff;
+
+    color: #392477;
+
+    padding: 14px 24px;
+
+    border-radius: 30px;
+}
+
+
+/* ========================================
+   RIGHT ICONS
+======================================== */
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   SEARCH ICON
+======================================== */
+
+.search {
+    width: 23px;
+    height: 23px;
+
+    border: 3px solid #5d38df;
+
+    border-radius: 50%;
+
+    position: relative;
+}
+
+.search::after {
+    content: "";
+
+    width: 10px;
+    height: 3px;
+
+    background: #5d38df;
+
+    border-radius: 3px;
+
+    position: absolute;
+
+    right: -8px;
+    bottom: -4px;
+
+    transform: rotate(45deg);
+}
+
+
+/* ========================================
+   PROFILE
+======================================== */
+
+.profile {
+    width: 60px;
+    height: 60px;
+
+    background: #dfe1e6;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 28px;
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+main {
+    width: 100%;
+
+    min-height: calc(100vh - 110px);
+
+    padding: 30px 28px;
+
+    background: #f7f5ff;
+}
+
+
+/* ========================================
+   CARDS CONTAINER
+======================================== */
+
+.cards-container {
+    width: 100%;
+
+    display: flex;
+
+    gap: 24px;
+
+    overflow-x: auto;
+
+    padding-bottom: 20px;
+}
+
+
+/* Scrollbar */
+
+.cards-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.cards-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+    background: #aaa;
+
+    border-radius: 10px;
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.card {
+    width: 440px;
+
+    min-width: 440px;
+
+    flex-shrink: 0;
+
+    background: #fff;
+
+    overflow: hidden;
+
+    border-radius: 22px 22px 0 0;
+
+    transition: 0.3s;
+}
+
+
+/* Hover */
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ========================================
+   CARD IMAGE
+======================================== */
+
+.card img {
+    width: 100%;
+
+    height: 590px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   OFFER
+======================================== */
+
+.offer {
+    width: 100%;
+    height: 35px;
+
+    background: #8064df;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 18px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+.offer span {
+    margin-right: 10px;
+}
+
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.card-content {
+    padding: 16px;
+}
+
+
+/* Timing */
+
+.timing {
+    color: #8b7b00;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+
+/* Title */
+
+.card-content h2 {
+    font-size: 24px;
+
+    line-height: 1.25;
+
+    margin-bottom: 6px;
+}
+
+
+/* Address */
+
+.address {
+    font-size: 16px;
+
+    color: #555;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1200px) {
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .location {
+        min-width: 190px;
+    }
+
+    .card {
+        width: 400px;
+        min-width: 400px;
+    }
+
+    .card img {
+        height: 540px;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        height: 75px;
+
+        padding: 0 15px;
+
+        gap: 10px;
+    }
+
+
+    /* Smaller logo */
+
+    .logo {
+        width: 105px;
+    }
+
+    .logo-text {
+        font-size: 29px;
+    }
+
+    .logo span {
+        font-size: 7px;
+    }
+
+
+    /* Hide divider */
+
+    .divider {
+        display: none;
+    }
+
+
+    /* Hide location */
+
+    .location {
+        display: none;
+    }
+
+
+    /* Navigation */
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        display: none;
+    }
+
+    .nav-links .active {
+        display: block;
+
+        padding: 10px 15px;
+
+        font-size: 14px;
+    }
+
+
+    /* Icons */
+
+    .nav-icons {
+        margin-left: auto;
+
+        gap: 20px;
+    }
+
+    .profile {
+        width: 45px;
+        height: 45px;
+
+        font-size: 20px;
+    }
+
+    .search {
+        width: 20px;
+        height: 20px;
+    }
+
+
+    /* Main */
+
+    main {
+        padding: 20px 15px;
+    }
+
+
+    /* Cards */
+
+    .cards-container {
+        gap: 16px;
+    }
+
+    .card {
+        width: 320px;
+
+        min-width: 320px;
+    }
+
+    .card img {
+        height: 430px;
+    }
+
+
+    /* Content */
+
+    .card-content h2 {
+        font-size: 20px;
+    }
+
+    .timing {
+        font-size: 15px;
+    }
+
+    .address {
+        font-size: 14px;
+    }
+
+    .offer {
+        font-size: 14px;
+    }
+}

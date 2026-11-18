@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Toggle</title>
+
+    <style>
+        .div1, .div2 {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .answer {
+            display: none;
+        }
+
+        .question {
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .icon {
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="heading">Frequently Asked Questions</h1>
+
+    <div class="div1">
+        <p class="question">
+            What is jQuery?
+            <span class="icon">+</span>
+        </p>
+        <p class="answer">
+            jQuery is a fast, small, and feature-rich JavaScript library.
+        </p>
+    </div>
+
+    <div class="div2">
+        <p class="question">
+            How do I include jQuery in my project?
+            <span class="icon">+</span>
+        </p>
+        <p class="answer">
+            You can include jQuery by adding the script tag with the source URL.
+        </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".question").click(function() {
+                $(this).next(".answer").slideToggle(400);
+                let icon = $(this).find(".icon");
+                if (icon.text() === "+") {
+                    icon.text("−");
+                } else {
+                    icon.text("+");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

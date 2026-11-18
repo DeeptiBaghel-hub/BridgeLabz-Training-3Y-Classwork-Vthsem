@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        body {
+            background-color: white;
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            width: 400px;
+            max-width: 90%;
+            margin: 0 auto;
+            border-radius: 8px;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            border: 1px solid #ddd;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #0f0e12;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="radio"] + label,
+        input[type="checkbox"] + label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 15px;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 100%;
+            height: 220px;
+            border: none;
+            margin-top: 15px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .register-btn {
+            background-color: #4806ab;
+        }
+
+        .register-btn:hover {
+            background-color: #35047d;
+        }
+
+        .reset-btn {
+            background-color: #666;
+        }
+
+        .reset-btn:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Registration Form</h1>
+
+    <form action="/register" method="POST">
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="fullName" placeholder="Enter name" required>
+
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+        <br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter age" required>
+
+        <br><br>
+
+        <label for="dateofbirth">DOB:</label>
+        <input type="date" id="dateofbirth" name="dob">
+
+        <br><br>
+
+        <label>Gender:</label>
+
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+
+        <br><br>
+
+        <label>Skills:</label>
+
+        <input type="checkbox" id="html" name="skills" value="HTML">
+        <label for="html">HTML</label>
+
+        <input type="checkbox" id="javascript" name="skills" value="JavaScript">
+        <label for="javascript">JavaScript</label>
+
+        <br><br>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/HcOc7P5BMi4?si=WndGZBuCNEkW2Uc-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <div class="button-container">
+
+            <button type="submit" class="register-btn">
+                Register
+            </button>
+
+            <button type="reset" class="reset-btn">
+                Reset
+            </button>
+
+        </div>
+
+    </form>
+
+</body>
+</html>

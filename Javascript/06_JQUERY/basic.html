@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 class="heading">Welcome to jQuery learning</h1>
+    <button id="change-btn" class="btn">Click Me</button>
+
+    <script 
+    src="https://code.jquery.com/jquery-4.1.0.js"
+    integrity="sha256-P4IlcYIfOn3YB0zga4ZJhrt/OdwjOrKSQsdxQykVcM4=" 
+    crossorigin="anonymous">
+    </script>
+    <script>
+        // $('.heading').text("Hello World");
+        // $('#change-btn').css('background-color', 'red');
+        // $('h1').css('color', 'blue');
+
+        // $('#change-btn').click(function () {
+        //     $('h1').css('color', 'green');
+        //     $('.heading').text("Welcome to 3CA");
+        // });
+        $('#change-btn').click(function () {
+            
+            // $('.heading').slideDown(1000, function () {
+            //     alert("Heading is hidden");
+            // });
+            $('.heading').hide();
+            
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

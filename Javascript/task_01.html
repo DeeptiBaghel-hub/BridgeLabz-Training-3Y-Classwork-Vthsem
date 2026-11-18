@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .product, .cart-item, .summary {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px #ddd;
+    }
+
+    .product, .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      margin: 2px;
+    }
+
+    .remove {
+      background: #dc2626;
+    }
+
+    .summary p {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #empty {
+      text-align: center;
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🛍️ Shopping Cart</h1>
+
+    <h2>Products</h2>
+    <div id="products"></div>
+
+    <h2>Your Cart</h2>
+    <div id="cart"></div>
+
+    <div class="summary">
+      <h2>Order Summary</h2>
+      <p>Total Items: <span id="totalItems">0</span></p>
+      <p>Subtotal: <span id="subtotal">₹0</span></p>
+      <p>Delivery: <span id="delivery">₹0</span></p>
+      <hr>
+      <h3>Total Amount: <span id="total">₹0</span></h3>
+      <button onclick="clearCart()" class="remove">
+        Clear Cart
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const products = [
+      { id: 1, name: "Apple", price: 20 },
+      { id: 2, name: "Banana", price: 10 },
+      { id: 3, name: "Milk", price: 60 },
+      { id: 4, name: "Bread", price: 40 }
+    ];
+
+    let cart = [];
+
+    function displayProducts() {
+      const productList = document.getElementById("products");
+
+      productList.innerHTML = products.map(product => `
+        <div class="product">
+          <span>${product.name} - ₹${product.price}</span>
+          <button onclick="addToCart(${product.id})">
+            Add to Cart
+          </button>
+        </div>
+      `).join("");
+    }
+
+    function addToCart(id) {
+      const product = products.find(item => item.id === id);
+      const cartItem = cart.find(item => item.id === id);
+
+      if (cartItem) {
+        cartItem.quantity++;
+      } else {
+        cart.push({ ...product, quantity: 1 });
+      }
+
+      displayCart();
+    }
+
+    function changeQuantity(id, amount) {
+      const item = cart.find(item => item.id === id);
+
+      if (!item) return;
+
+      item.quantity += amount;
+
+      if (item.quantity <= 0) {
+        removeFromCart(id);
+        return;
+      }
+
+      displayCart();
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      displayCart();
+    }
+
+    function clearCart() {
+      cart = [];
+      displayCart();
+    }
+
+    function calculateTotal() {
+      return cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+    }
+
+    function displayCart() {
+      const cartElement = document.getElementById("cart");
+
+      if (cart.length === 0) {
+        cartElement.innerHTML =
+          '<p id="empty">Your cart is empty!</p>';
+      } else {
+        cartElement.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <div>
+              <strong>${item.name}</strong><br>
+              ₹${item.price} × ${item.quantity}
+              = ₹${item.price * item.quantity}
+            </div>
+
+            <div>
+              <button onclick="changeQuantity(${item.id}, -1)">−</button>
+              ${item.quantity}
+              <button onclick="changeQuantity(${item.id}, 1)">+</button>
+              <button class="remove"
+                onclick="removeFromCart(${item.id})">
+                Remove
+              </button>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      const totalItems = cart.reduce(
+        (sum, item) => sum + item.quantity, 0
+      );
+
+      const subtotal = calculateTotal();
+      const delivery = subtotal === 0 ? 0 : subtotal >= 500 ? 0 : 40;
+      const total = subtotal + delivery;
+
+      document.getElementById("totalItems").textContent = totalItems;
+      document.getElementById("subtotal").textContent = `₹${subtotal}`;
+      document.getElementById("delivery").textContent =
+        delivery === 0 && subtotal > 0 ? "Free" : `₹${delivery}`;
+      document.getElementById("total").textContent = `₹${total}`;
+    }
+
+    displayProducts();
+    displayCart();
+  </script>
+</body>
+</html>

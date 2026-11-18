@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height:1000vh;
+            width:1000vw;
+            background-color: white;
+        }
+        .box{
+            height:200px;
+            width:400px;
+            background-color: blueviolet;
+            animation: name duration timing-function delay iteration-count direction fill-mode;
+
+            animation-name: box_animation;
+            animation-duration: 2s;
+            animation-timing-function:linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+
+
+        }
+        @keyframes box_animation {
+            from{
+                background-color: aqua;
+            }
+            to{
+                background-color: blue;
+                transform: translateX(1000px);
+
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+
+            <a href="https://github.com/KavyaGupta023">HEINNNN</a>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QQ0lcYJW9XzBs74tkljHMTby_zCs5FfAlrJgigNbOw&s=10" alt="tree" >
+        </div>
+        </div>
+    </div>
+</body>
+</html>
